@@ -1,0 +1,5 @@
+#program dependencies
+selenium
+bs4
+numpy
+webdriver_manager
