@@ -1,7 +1,6 @@
-from sudoku import *
+import sudoku
+
+board = sudoku.Board()
 
 for i in range(25):
-    grid = collect()
-    result = solver(grid)
-    fill(result)
-    driver.find_element_by_name('submit').click()
+    board.solve_puzzle()
