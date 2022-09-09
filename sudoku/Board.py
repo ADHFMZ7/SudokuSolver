@@ -17,7 +17,7 @@ class Board:
 
     def collect(self):
         driver.get('https://www.websudoku.com/')
-        time.sleep(1)
+        time.sleep(0.1)
         driver.switch_to.frame(driver.find_element(By.XPATH, '/html/frameset/frame'))
         content = driver.page_source
         soup = BeautifulSoup(content, 'html.parser')
