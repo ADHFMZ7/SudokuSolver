@@ -18,7 +18,7 @@ class Board:
     def collect(self):
         driver.get('https://www.websudoku.com/')
         time.sleep(1)
-        driver.switch_to.frame(driver.find_element_by_xpath('/html/frameset/frame'))
+        driver.switch_to.frame(driver.find_element(By.XPATH, '/html/frameset/frame'))
         content = driver.page_source
         soup = BeautifulSoup(content, 'html.parser')
 
@@ -114,11 +114,11 @@ class Board:
         for i in range(9):
             for j in range(9):
                 tile_id = 'f'+str(j)+str(i)
-                driver.find_element_by_id(tile_id).send_keys(str(self.grid[i][j]))
-        driver.find_element_by_name('submit').click()  
+                driver.find_element(By.ID, tile_id).send_keys(str(self.grid[i][j]))
+        driver.find_element(By.NAME, 'submit').click()  
 
 
     def solve_puzzle(self):
         self.collect()
         self.solve()
-        driver.find_element_by_xpath("//input[@type='submit']").click()
+        driver.find_element(By.XPATH, "//input[@type='submit']").click()
